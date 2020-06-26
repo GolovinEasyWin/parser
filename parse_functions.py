@@ -36,9 +36,10 @@ def get_content(html):
     cars = []
     for item in items:
         cars.append({
-            'title': item.find('div', class_='eozdvfu0').get_text(),
+            'title': (item.find('div', class_='eozdvfu0').get_text())[:-6],
+            'year': (item.find('div', class_='eozdvfu0').get_text())[-4:],
+            'price':  (item.find('span', class_='css-11cjsbc').get_text())[0:-2],
             'link': item.get('href'),
-            'price':  (item.find('span', class_='css-11cjsbc').get_text())[0:-2]
         })
 
     print(cars)
