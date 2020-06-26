@@ -1,3 +1,6 @@
+# ©LG PolyRec, Peter the Great Polytechnical University, IBKS, 2020
+# Developer: @GolovinEasyWin
+
 # Библиотека для использования командной строки
 import sys
 
@@ -5,8 +8,8 @@ import sys
 arguments = sys.argv[1:]
 
 # Инициализация переменных под аргументы КС
-arg1 = arguments[0]
-arg2 = arguments[1]
+arg1 = str(arguments[0])
+#arg2 = arguments[1]
 
 # Список с действующими марками автомобилей
 LIST_CARS = [
@@ -23,16 +26,14 @@ def check_arguments(car):
         return True
 
 
-# Формирование URL страницы для передачи в parser.py
+# Формирование URL страницы для передачи в parse_functions.py
 def create_url(car):
     # Базовый адрес сайта
-    default_url = 'https://www.drom.ru/'
+    default_url = 'https://auto.drom.ru/'
     if check_arguments(car):
         # Возвращаем новый адрес с учетом аргументов
         return default_url + car
+    # Завершение работы программы при неправильном вводе аргументов
     else:
         print('Ошибка ввода аргументов')
-        return -1
-
-
-#URL = create_url(arg1)
+        sys.exit()

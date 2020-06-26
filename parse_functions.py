@@ -1,9 +1,6 @@
 # ©LG PolyRec, Peter the Great Polytechnical University, IBKS, 2020
 # Developer: @GolovinEasyWin
 
-# Импортируем все объекты и методы из файла settings.py
-import settings
-
 #Библиотека для работы с HTTP-запросами
 import requests
 
@@ -16,10 +13,8 @@ HEADERS = {
     'accept': '*/*'
 }
 
-URL = 'https://www.drom.ru'
-
 # Код успешного запроса
-HTTP_OK = 200
+HTTP_OK_STATUS = 200
 
 
 # Выполнение GET-запросов
@@ -32,12 +27,13 @@ def get_content(html):
     # Создание объектов Python из элементов DOM-дерева
     soup = BeautifulSoup(html, 'html.parser')
     # Получаем коллекцию элементов с выбранным тегом и классом
-    items = soup.find_all('a', '')
+    # items = soup.find_all('a', '')
 
 
-def parse():
-    html = get_html(URL)
-    if html.status_code == HTTP_OK:
+def parse(url):
+    html = get_html(url)
+    if html.status_code == HTTP_OK_STATUS:
         get_content(html.text)
+        print(html.text)
     else:
         print('error')
