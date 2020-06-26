@@ -7,6 +7,8 @@ import requests
 #Библиотека для трансформации DOM-дерева в Python-объект
 from bs4 import BeautifulSoup
 
+import re
+
 # Словарь для заголовков (имитация работы браузера = антибот)
 HEADERS = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
@@ -15,6 +17,12 @@ HEADERS = {
 
 # Код успешного запроса
 HTTP_OK_STATUS = 200
+
+# Максимальное количество страниц с объявлениями
+MAX_PAGES = 1000
+
+# Максимальное количество объявлений на одной странице
+MAX_CARS_ON_PAGE = 20
 
 
 # Выполнение GET-запросов
@@ -27,13 +35,20 @@ def get_pages_count(html):
     # Создание объектов Python из элементов DOM-дерева
     soup = BeautifulSoup(html, 'html.parser')
 
-    # Находим все кнопки с номерами страниц
-    pagination = soup.find_all('a', class_='ena3a8q0')
+    # Находим число объявлений по запросу
+    cars_count = soup.find('button', class_='e75dypj1').get_text()
 
-    if pagination:
-        return int(pagination[-1].get_text())
-    else:
+    cars_count = int(re.sub(r'[^0-9]', r'', cars_count))
+
+    print('cars = ', cars_count)
+
+    # Проверка на одну страницу
+    if cars_count <= MAX_CARS_ON_PAGE:
         return 1
+
+    # Выполняем целочисленное деление для нахождения количества страниц
+    pages_count = cars_count // MAX_CARS_ON_PAGE + 1
+    return pages_count
 
 
 def get_content(html):
@@ -67,6 +82,8 @@ def parse(url):
     # Проверка статус-кода запроса
     if html.status_code == HTTP_OK_STATUS:
         cars = []
+
+        # Считаем количество страниц для данных аргументов
         pages_count = get_pages_count(html.text)
         print(pages_count)
 

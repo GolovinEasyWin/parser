@@ -17,7 +17,7 @@ LIST_CARS = [
     'ford', 'honda', 'hyundai', 'kia',
     'mazda', 'mercedes-benz', 'mitsubishi',
     'nissan', 'opel', 'renault', 'skoda',
-    'subaru', 'toyota', 'volkswagen', 'lada'
+    'subaru', 'toyota', 'volkswagen', 'lada', 'acura'
 ]
 
 
@@ -31,10 +31,11 @@ def check_arguments(car):
 def create_url(car):
     # Базовый адрес сайта
     default_url = 'https://auto.drom.ru/'
+
     if check_arguments(car):
         # Возвращаем новый адрес с учетом аргументов
         return default_url + car
-    # Завершение работы программы при неправильном вводе аргументов
+    # Завершение работы программы при неверном вводе аргументов
     else:
         print('Ошибка ввода аргументов')
         sys.exit()
