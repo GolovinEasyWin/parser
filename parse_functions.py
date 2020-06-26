@@ -4,8 +4,6 @@
 #Библиотека для работы с HTTP-запросами
 import requests
 
-import re
-
 #Библиотека для трансформации DOM-дерева в Python-объект
 from bs4 import BeautifulSoup
 
@@ -20,37 +18,64 @@ HTTP_OK_STATUS = 200
 
 
 # Выполнение GET-запросов
-def get_html(url, page_number=None):
-    req = requests.get(url, headers=HEADERS, params=page_number)
+def get_html(url, params=None):
+    req = requests.get(url, headers=HEADERS, params=params)
     return req
+
+
+def get_pages_count(html):
+    # Создание объектов Python из элементов DOM-дерева
+    soup = BeautifulSoup(html, 'html.parser')
+
+    # Находим все кнопки с номерами страниц
+    pagination = soup.find_all('a', class_='ena3a8q0')
+
+    if pagination:
+        return int(pagination[-1].get_text())
+    else:
+        return 1
 
 
 def get_content(html):
     # Создание объектов Python из элементов DOM-дерева
     soup = BeautifulSoup(html, 'html.parser')
+
     # Получаем коллекцию элементов с выбранным тегом и классом
     items = soup.find_all('a', class_='erw2ohd2')
     #print(items)
 
     # Словарь для автомобилей
     cars = []
+
+    # Заполняем словарь автомобилей
     for item in items:
         cars.append({
             'title': (item.find('div', class_='eozdvfu0').get_text())[:-6],
             'year': (item.find('div', class_='eozdvfu0').get_text())[-4:],
             'price':  (item.find('span', class_='css-11cjsbc').get_text())[0:-2],
+            'city': item.find('span', class_='css-s9m8ro').get_text(),
             'link': item.get('href'),
         })
 
-    print(cars)
+    return cars
 
 
 def parse(url):
     # Получаем html-код
     html = get_html(url)
+
     # Проверка статус-кода запроса
     if html.status_code == HTTP_OK_STATUS:
-        get_content(html.text)
-        #print(html.text)
+        cars = []
+        pages_count = get_pages_count(html.text)
+        print(pages_count)
+
+        for page in range(1, pages_count + 1):
+            print(f'--- Выполняется парсинг {page} страницы из {pages_count} ---')
+            html = get_html(url, params={'page': page})
+            cars.extend(get_content(html.text))
+            #cars = get_content(html.text)
+        print(cars)
+        print(f'Получено {len(cars)} автомобилей!')
     else:
         print('error')

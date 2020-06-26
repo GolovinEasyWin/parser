@@ -13,10 +13,11 @@ arg1 = str(arguments[0])
 
 # Список с действующими марками автомобилей
 LIST_CARS = [
-    'acura', 'alfa_romeo', 'alphina',
-    'asia', 'aston_martin', 'audi',
-    'bentley', 'bmw', 'brilliance',
-    'buick', 'byd', 'cadilac'
+    'audi', 'bmw', 'chevrolet', 'daewoo',
+    'ford', 'honda', 'hyundai', 'kia',
+    'mazda', 'mercedes-benz', 'mitsubishi',
+    'nissan', 'opel', 'renault', 'skoda',
+    'subaru', 'toyota', 'volkswagen', 'lada'
 ]
 
 
