@@ -4,6 +4,8 @@
 #Библиотека для работы с HTTP-запросами
 import requests
 
+import re
+
 #Библиотека для трансформации DOM-дерева в Python-объект
 from bs4 import BeautifulSoup
 
@@ -27,13 +29,27 @@ def get_content(html):
     # Создание объектов Python из элементов DOM-дерева
     soup = BeautifulSoup(html, 'html.parser')
     # Получаем коллекцию элементов с выбранным тегом и классом
-    # items = soup.find_all('a', '')
+    items = soup.find_all('a', class_='erw2ohd2')
+    #print(items)
+
+    # Словарь для автомобилей
+    cars = []
+    for item in items:
+        cars.append({
+            'title': item.find('div', class_='eozdvfu0').get_text(),
+            'link': item.get('href'),
+            'price':  (item.find('span', class_='css-11cjsbc').get_text())[0:-2]
+        })
+
+    print(cars)
 
 
 def parse(url):
+    # Получаем html-код
     html = get_html(url)
+    # Проверка статус-кода запроса
     if html.status_code == HTTP_OK_STATUS:
         get_content(html.text)
-        print(html.text)
+        #print(html.text)
     else:
         print('error')
