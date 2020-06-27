@@ -7,6 +7,7 @@ import requests
 #Библиотека для трансформации DOM-дерева в Python-объект
 from bs4 import BeautifulSoup
 
+#Библиотека для использования регулярных выражений
 import re
 
 # Словарь для заголовков (имитация работы браузера = антибот)
@@ -92,7 +93,8 @@ def parse(url):
             html = get_html(url, params={'page': page})
             cars.extend(get_content(html.text))
             #cars = get_content(html.text)
-        print(cars)
+        #print(cars)
         print(f'Получено {len(cars)} автомобилей!')
+        return cars
     else:
         print('error')
