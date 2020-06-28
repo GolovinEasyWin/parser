@@ -1,9 +1,8 @@
 # ©LG PolyRec, Peter the Great Polytechnical University, IBKS, 2020
 # Developer: @GolovinEasyWin
 
-import settings as st
-import parse_functions as pf
-from write_data import PATH_TO_FILE, save_file, start_file
+from src import settings as st, parse_functions as pf
+from src.write_data import PATH_TO_FILE, save_file, start_file
 
 # Формируем адрес для парсинга, опираясь на аргументы КС
 URL = st.create_url(st.arg1)
