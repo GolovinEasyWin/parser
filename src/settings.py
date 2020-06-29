@@ -8,7 +8,8 @@ import sys
 arguments = sys.argv[1:]
 
 # Инициализация переменных под аргументы КС
-arg1 = str(arguments[0])
+#arg1 = str(arguments[0])
+arg1 = 'acura'
 #arg2 = arguments[1]
 
 # Список с действующими марками автомобилей
