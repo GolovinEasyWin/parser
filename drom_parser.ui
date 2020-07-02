@@ -13,117 +13,55 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: black;</string>
+  </property>
   <property name="sizeGripEnabled">
    <bool>false</bool>
   </property>
   <widget class="QCheckBox" name="checkBox">
    <property name="geometry">
     <rect>
-     <x>610</x>
+     <x>600</x>
      <y>280</y>
      <width>201</width>
-     <height>16</height>
+     <height>31</height>
     </rect>
-   </property>
-   <property name="text">
-    <string>Сгенерировать Excel-файл</string>
-   </property>
-  </widget>
-  <widget class="QTableWidget" name="tableWidget">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>320</y>
-     <width>1031</width>
-     <height>361</height>
-    </rect>
-   </property>
-   <property name="layoutDirection">
-    <enum>Qt::LeftToRight</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url();</string>
+    <string notr="true">color: white;</string>
    </property>
-   <column>
-    <property name="text">
-     <string>Марка</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Год выпуска</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Цена</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Город</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Ссылка</string>
-    </property>
-   </column>
+   <property name="text">
+    <string>Автоматически открыть файл</string>
+   </property>
   </widget>
   <widget class="QPushButton" name="searchButton">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>270</y>
-     <width>181</width>
-     <height>28</height>
+     <x>420</x>
+     <y>280</y>
+     <width>151</width>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: yellow;</string>
    </property>
    <property name="text">
     <string>Найти</string>
    </property>
   </widget>
-  <widget class="QProgressBar" name="progressBar">
+  <widget class="QComboBox" name="comboBoxAuto">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>500</y>
-     <width>771</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="value">
-    <number>24</number>
-   </property>
-  </widget>
-  <widget class="QTextBrowser" name="textBrowser">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>450</y>
-     <width>471</width>
+     <x>20</x>
+     <y>50</y>
+     <width>151</width>
      <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border: none;</string>
-   </property>
-   <property name="html">
-    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-style:italic;&quot;&gt;Пожалуйста, подождите. Выполняется поиск...&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBoxAuto">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>80</y>
-     <width>151</width>
-     <height>41</height>
-    </rect>
+    <string notr="true">background-color: #b89393;</string>
    </property>
    <item>
     <property name="text">
@@ -135,15 +73,163 @@ p, li { white-space: pre-wrap; }
      <string>Audi</string>
     </property>
    </item>
+   <item>
+    <property name="text">
+     <string>Bentley</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>BMW</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Cadillac</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Chery</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Chevrolet</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Citroen</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Daewoo</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Dodge</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Fiat</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Ford</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Honda</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Hyundai</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Kia</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Lexus</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Mazda</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Mercedes-Benz</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Mitsubishi</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Nissan</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Opel</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Peugeot</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Porsche</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Renault</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Rolls-Royce</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Skoda</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Subaru</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Suzuki</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Toyota</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Volkswagen</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Volvo</string>
+    </property>
+   </item>
   </widget>
-  <widget class="QComboBox" name="comboBoxYear">
+  <widget class="QComboBox" name="comboBoxYear_2">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>80</y>
-     <width>111</width>
+     <x>220</x>
+     <y>130</y>
+     <width>151</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: grey;</string>
    </property>
    <item>
     <property name="text">
@@ -311,34 +397,962 @@ p, li { white-space: pre-wrap; }
     </property>
    </item>
   </widget>
-  <widget class="QScrollBar" name="verticalScrollBar">
+  <widget class="QCalendarWidget" name="calendarWidget">
    <property name="geometry">
     <rect>
-     <x>1030</x>
-     <y>330</y>
-     <width>20</width>
-     <height>341</height>
+     <x>620</x>
+     <y>20</y>
+     <width>431</width>
+     <height>241</height>
     </rect>
    </property>
-   <property name="orientation">
-    <enum>Qt::Vertical</enum>
+   <property name="whatsThis">
+    <string/>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: white;
+color: black;</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit">
+  <widget class="QComboBox" name="comboBoxPrice_1">
    <property name="geometry">
     <rect>
-     <x>710</x>
-     <y>90</y>
-     <width>181</width>
+     <x>420</x>
+     <y>51</y>
+     <width>151</width>
      <height>41</height>
     </rect>
    </property>
-   <property name="html">
-    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; color:#b6b6b6;&quot;&gt;Цена, до (руб.)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   <property name="styleSheet">
+    <string notr="true">background-color: #d4976e;</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>Любая</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>50 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>100 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>150 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>200 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>250 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>300 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>400 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>450 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>500 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>550 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>600 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>650 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>700 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>750 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>800 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>850 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>900 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>950 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 050 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 100 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 150 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 200 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 250 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 300 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 350 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 400 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 450 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 500 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 550 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 600 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 650 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 700 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 750 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 800 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 850 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 900 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2 500 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>3 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>3 500 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>4 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>4 500 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>5 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>7 500 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>10 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>12 500 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>15 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>17 500 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>20 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>25 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>30 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>40 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>50 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>60 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>70 000 000</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="comboBoxYear_1">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>50</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: grey;</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>Любой</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2020</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2019</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2018</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2017</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2016</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2015</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2014</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2013</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2012</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2011</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2010</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2009</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2008</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2007</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2006</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2005</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2004</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2003</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2002</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2001</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1999</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1998</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1997</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1996</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1995</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1994</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1993</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1992</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1991</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1990</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1989</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="comboBoxPrice_2">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>130</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #d4976e;</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>Любая</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>50 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>100 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>150 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>200 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>250 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>300 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>400 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>450 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>500 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>550 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>600 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>650 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>700 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>750 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>800 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>850 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>900 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>950 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 050 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 100 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 150 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 200 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 250 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 300 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 350 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 400 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 450 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 500 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 550 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 600 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 650 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 700 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 750 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 800 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 850 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1 900 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2 500 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>3 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>3 500 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>4 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>4 500 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>5 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>7 500 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>10 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>12 500 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>15 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>17 500 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>20 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>25 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>30 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>40 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>50 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>60 000 000</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>70 000 000</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="flag">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>190</y>
+     <width>251</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>images/japan.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>20</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
+   </property>
+   <property name="text">
+    <string>Марка</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>20</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
+   </property>
+   <property name="text">
+    <string>Год выпуска, от</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>100</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
+   </property>
+   <property name="text">
+    <string>Год выпуска, до</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>20</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
+   </property>
+   <property name="text">
+    <string>Цена от, руб.</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>100</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
+   </property>
+   <property name="text">
+    <string>Цена до, руб.</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>330</y>
+     <width>801</width>
+     <height>351</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../../Desktop/drom_log.jpg</pixmap>
    </property>
   </widget>
  </widget>

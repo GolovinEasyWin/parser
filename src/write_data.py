@@ -15,6 +15,7 @@ def save_file(items, path):
         writer.writerow(['Марка', 'Год выпуска', 'Цена', 'Город', 'Ссылка'])
         for item in items:
             writer.writerow([item['title'], item['year'], item['price'], item['city'], item['link']])
+            print(item['title'], item['year'], item['price'], item['city'], item['link'])
 
 
 # Автозапуск файла
