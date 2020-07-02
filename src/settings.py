@@ -50,20 +50,20 @@ def create_region_number(region):
 
 
 # Формирование URL страницы для передачи в parse_functions.py
-def create_url(filter_region, filter_car, filter_year):
+def create_url(filter_region, filter_car, filter_year, filter_price):
     # Базовый адрес сайта
     default_url = 'https://auto.drom.ru/'
 
     if check_arguments(filter_car):
 
         if str(filter_year).isdigit():
-            adress = default_url + 'region' + str(create_region_number(filter_region)) + '/' + str(filter_car) + '/year-' + filter_year + '/all'
+            adress = default_url + 'region' + str(create_region_number(filter_region)) + '/' + str(filter_car) + '/year-' + + filter_year + '/all/' + filter_price
         else:
             # Возвращаем новый адрес с учетом аргументов
-            adress = default_url + 'region' + str(create_region_number(filter_region)) + '/' + str(filter_car) + '/all/' + filter_year
+            adress = default_url + 'region' + str(create_region_number(filter_region)) + '/' + str(filter_car) + '/all/' + filter_price + filter_year
         print(f'adress = {adress}')
         return adress
     # Завершение работы программы при неверном вводе аргументов
     else:
-        print('Ошибка ввода аргументов')
+        print('Ошибка')
         sys.exit()

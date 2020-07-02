@@ -2,8 +2,6 @@
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtCore import Qt
 
-from bs4 import BeautifulSoup
-
 # Импортируем файлы с функциями и настройками для парсинга
 import src.parse_functions as pf
 import src.settings as st
@@ -39,12 +37,16 @@ class Ui(QtWidgets.QDialog, Form):
     def searchButon_pressed(self):
         filter_region = self.filter_region()
         filter_car = self.filter_car()
+        filter_price = self.filter_price()
         filter_year = self.filter_year()
 
-        # изменить границы поиска
-        url = st.create_url(filter_region, filter_car, filter_year)
+        url = st.create_url(filter_region, filter_car, filter_year, filter_price)
         cars = pf.parse(url)
-        #print(cars)
+
+        if len(cars) == 0:
+            print('Нет машин')
+            return -1
+
         wd.save_file(cars, wd.PATH_TO_FILE)
         self.checkBox_condition(wd.PATH_TO_FILE)
 
@@ -61,26 +63,6 @@ class Ui(QtWidgets.QDialog, Form):
         print(filter_data)
         return filter_data
 
-    # Формирование comboBox для выбора модели
-    # def create_comboBoxModel(self, html):
-    #    soup = BeautifulSoup(html, 'html.parser')
-    #    # Получаем коллекцию элементов с выбранным тегом и классом
-    #    items = soup.find_all('div', class_='e1x0dvi12')
-    #    models = []
-    #    for item in items:
-    #        models.append(item.find('div', class_='e1x0dvi12').get_text())
-    #
-    #    for model in models:
-    #        self.comboBoxModel.addItem(model)
-
-    # Обработка MultiBox для выбора модели
-    # def filter_model(self):
-    #    # Получение значения ComboBox для модели
-    #    st.model = self.comboBoxModel.currentText()
-    #    filter_data = st.model.lower()
-    #    print(filter_data)
-    #    return filter_data
-
     # Обработка MultiBox для ограничения года выпуска
     def filter_year(self):
         filter_year = ''
@@ -96,20 +78,46 @@ class Ui(QtWidgets.QDialog, Form):
             # Если указан один и тот же год выпуска
             elif st.year_from == st.year_to:
                 return st.year_from
-
-        if st.year_from != 'Любой' and st.year_to != 'Любой':
-            filter_year = filter_year + '?minyear=' + st.year_from + '&maxyear=' + st.year_to
-        elif st.year_from != 'Любой' and st.year_to == 'Любой':
-            filter_year = filter_year + '?minyear=' + st.year_from
-        elif st.year_from == 'Любой' and st.year_to != 'Любой':
-            filter_year = filter_year + '?maxyear=' + st.year_to
+        if st.price_from == 'Любая' and st.price_to == 'Любая':
+            if st.year_from != 'Любой' and st.year_to != 'Любой':
+                filter_year = filter_year + '?minyear=' + st.year_from + '&maxyear=' + st.year_to
+            elif st.year_from != 'Любой' and st.year_to == 'Любой':
+                filter_year = filter_year + '?minyear=' + st.year_from
+            elif st.year_from == 'Любой' and st.year_to != 'Любой':
+                filter_year = filter_year + '?maxyear=' + st.year_to
+        else:
+            if st.year_from != 'Любой' and st.year_to != 'Любой':
+                filter_year = filter_year + '&minyear=' + st.year_from + '&maxyear=' + st.year_to
+            elif st.year_from != 'Любой' and st.year_to == 'Любой':
+                filter_year = filter_year + '&minyear=' + st.year_from
+            elif st.year_from == 'Любой' and st.year_to != 'Любой':
+                filter_year = filter_year + '&maxyear=' + st.year_to
 
         print(filter_year)
         return filter_year
 
     # Обработка MultiBox для ограничения цены
     def filter_price(self):
-        pass
+        filter_price = ''
+        st.price_from = self.comboBoxPrice_1.currentText().replace(' ', '')
+        st.price_to = self.comboBoxPrice_2.currentText().replace(' ', '')
+
+        if st.price_from != 'Любая' and st.price_to != 'Любая':
+            # Если границы цены неправильные
+            if int(st.price_from) > int(st.price_to):
+                tmp = st.price_to
+                st.price_to = st.price_from
+                st.price_from = tmp
+
+        if st.price_from != 'Любая' and st.price_to != 'Любая':
+            filter_price = filter_price + '?minprice=' + st.price_from + '&maxprice=' + st.price_to
+        elif st.price_from != 'Любая' and st.price_to == 'Любая':
+            filter_price = filter_price + '?minprice=' + st.price_from
+        elif st.price_from == 'Любая' and st.price_to != 'Любая':
+            filter_price = filter_price + '?maxprice=' + st.price_to
+
+        print(filter_price)
+        return filter_price
 
 
 if __name__ == '__main__':

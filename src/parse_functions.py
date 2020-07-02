@@ -7,8 +7,6 @@ import requests
 #Библиотека для трансформации DOM-дерева в Python-объект
 from bs4 import BeautifulSoup
 
-import src.settings as st
-
 #Библиотека для использования регулярных выражений
 import re
 
@@ -44,7 +42,12 @@ def get_pages_count(html):
     # Находим число объявлений по запросу
     cars_count = soup.find('button', class_='e75dypj1').get_text()
 
-    cars_count = int(re.sub(r'[^0-9]', r'', cars_count))
+    # Проверка на наличие объявлений
+    if re.search(r'\d+', cars_count):
+        cars_count = int(re.sub(r'[^0-9]', r'', cars_count))
+    else:
+        print(cars_count)
+        return -1
 
     # Проверка на одну страницу
     if cars_count <= MAX_CARS_ON_PAGE:
@@ -106,7 +109,6 @@ def parse(url):
             print(f'--- Выполняется парсинг {page} страницы из {pages_count} ---')
             html = get_html(url, params={'page': page})
             cars.extend(get_content(html.text))
-        print(f'Получено {len(cars)} автомобилей!')
         return cars
     else:
         print('error')
