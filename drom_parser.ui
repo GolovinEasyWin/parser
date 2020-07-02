@@ -75,17 +75,7 @@
    </item>
    <item>
     <property name="text">
-     <string>Bentley</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
      <string>BMW</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Cadillac</string>
     </property>
    </item>
    <item>
@@ -106,11 +96,6 @@
    <item>
     <property name="text">
      <string>Daewoo</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Dodge</string>
     </property>
    </item>
    <item>
@@ -175,17 +160,7 @@
    </item>
    <item>
     <property name="text">
-     <string>Porsche</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
      <string>Renault</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Rolls-Royce</string>
     </property>
    </item>
    <item>
@@ -1353,6 +1328,109 @@ color: black;</string>
    </property>
    <property name="pixmap">
     <pixmap>../../Desktop/drom_log.jpg</pixmap>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBoxRegion">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>130</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #b89393;</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>Санкт-Петербург</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Москва</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Новосибирская область</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Свердловская область</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Республика Татарстан</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Волгоградская область</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Пермский край</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Ростовская область</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>100</y>
+     <width>131</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
+   </property>
+   <property name="text">
+    <string>Регион</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="progressText">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>550</y>
+     <width>341</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Nirmala UI</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 0);
+color: white;</string>
+   </property>
+   <property name="text">
+    <string>База объявлений</string>
    </property>
   </widget>
  </widget>

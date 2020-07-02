@@ -28,7 +28,7 @@ MAX_PAGES = 100
 MAX_CARS_ON_PAGE = 20
 
 # Словарь для автомобилей
-cars = []
+#cars = []
 
 
 # Выполнение GET-запросов
@@ -52,7 +52,12 @@ def get_pages_count(html):
 
     # Выполняем целочисленное деление для нахождения количества страниц
     pages_count = cars_count // MAX_CARS_ON_PAGE + 1
+    if pages_count > MAX_PAGES:
+        pages_count = MAX_PAGES
     return pages_count
+
+
+links = []
 
 
 def get_content(html):
@@ -61,49 +66,47 @@ def get_content(html):
 
     # Получаем коллекцию элементов с выбранным тегом и классом
     items = soup.find_all('a', class_='erw2ohd2')
+    #print(items)
 
-    error_page = soup.find_all('div', type='warning')
-
-    if not items or error_page:
-        return -1
+    # Словарь для автомобилей
+    cars = []
 
     # Заполняем словарь автомобилей
     for item in items:
-        new_info = {
-            'title': (item.find('div', class_='eozdvfu0').get_text())[:-6],
-            'year': (item.find('div', class_='eozdvfu0').get_text())[-4:],
-            'price':  (item.find('span', class_='css-11cjsbc').get_text())[0:-2],
-            'city': item.find('span', class_='css-s9m8ro').get_text().replace('\u2192', '-'),
-            'link': item.get('href'),
-        }
-        if new_info in cars:
-            #print(new_info)
-            return -1
-        cars.append(new_info)
+        link = item.get('href')
+        if link in links:
+            continue
+        else:
+            new_car = {
+                'title': (item.find('div', class_='eozdvfu0').get_text())[:-6],
+                'year': (item.find('div', class_='eozdvfu0').get_text())[-4:],
+                'price':  (item.find('span', class_='css-11cjsbc').get_text())[0:-2],
+                'city': item.find('span', class_='css-s9m8ro').get_text().replace('\u2248', '-'),
+                'link': item.get('href'),
+            }
+            links.append(link)
+            cars.append(new_car)
+
     return cars
 
 
 def parse(url):
-    print(f'url in parse = {url}')
     # Получаем html-код
     html = get_html(url)
 
     # Проверка статус-кода запроса
     if html.status_code == HTTP_OK_STATUS:
+        cars = []
 
-        pages = MAX_PAGES
-        if st.year_from == 'Любой' and st.year_to == 'Любой': #and st.price_from == 'Любая' and st.price_to == 'Любая':
-            pages = get_pages_count(html.text)
+        # Считаем количество страниц для данных аргументов
+        pages_count = get_pages_count(html.text)
+        print(pages_count)
 
-        result = 0
-        for page in range(1, pages + 1):
-            print(f'--- Выполняется парсинг {page} страницы ---')
+        for page in range(1, pages_count + 1):
+            print(f'--- Выполняется парсинг {page} страницы из {pages_count} ---')
             html = get_html(url, params={'page': page})
-            result = get_content(html.text)
-            if result != -1:
-                cars.extend(result)
-            else:
-                break
-        return result
+            cars.extend(get_content(html.text))
+        print(f'Получено {len(cars)} автомобилей!')
+        return cars
     else:
         print('error')

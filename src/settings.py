@@ -6,6 +6,7 @@ import sys
 
 # Инициализация переменных под аргументы КС
 car = 0
+city = 0
 year_from = 0
 year_to = 0
 price_from = 0
@@ -13,11 +14,11 @@ price_to = 0
 
 # Список с действующими марками автомобилей
 LIST_CARS = [
-    'audi', 'bmw', 'chevrolet', 'daewoo',
-    'ford', 'honda', 'hyundai', 'kia',
+    'acura', 'audi', 'bmw', 'chery', 'chevrolet', 'citroen',
+    'daewoo', 'fiat', 'ford', 'honda', 'hyundai', 'kia',
     'mazda', 'mercedes-benz', 'mitsubishi',
     'nissan', 'opel', 'renault', 'skoda',
-    'subaru', 'toyota', 'volkswagen', 'acura'
+    'subaru', 'suzuki', 'toyota', 'volkswagen', 'volvo'
 ]
 
 
@@ -27,14 +28,39 @@ def check_arguments(filter_car):
         return True
 
 
+def create_region_number(region):
+    region_number = 0
+    if region == 'Санкт-Петербург':
+        region_number = 78
+    elif region == 'Москва':
+        region_number = 77
+    elif region == 'Новосибирская область':
+        region_number = 54
+    elif region == 'Свердловская область':
+        region_number = 66
+    elif region == 'Республика Татарстан':
+        region_number = 16
+    elif region == 'Волгоградская область':
+        region_number = 34
+    elif region == 'Пермский край':
+        region_number = 59
+    elif region == 'Ростовская область':
+        region_number = 61
+    return region_number
+
+
 # Формирование URL страницы для передачи в parse_functions.py
-def create_url(filter_car, filter_year):
+def create_url(filter_region, filter_car, filter_year):
     # Базовый адрес сайта
     default_url = 'https://auto.drom.ru/'
 
     if check_arguments(filter_car):
-        # Возвращаем новый адрес с учетом аргументов
-        adress = default_url + str(filter_car) + filter_year
+
+        if str(filter_year).isdigit():
+            adress = default_url + 'region' + str(create_region_number(filter_region)) + '/' + str(filter_car) + '/year-' + filter_year + '/all'
+        else:
+            # Возвращаем новый адрес с учетом аргументов
+            adress = default_url + 'region' + str(create_region_number(filter_region)) + '/' + str(filter_car) + '/all/' + filter_year
         print(f'adress = {adress}')
         return adress
     # Завершение работы программы при неверном вводе аргументов

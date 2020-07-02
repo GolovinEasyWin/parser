@@ -37,15 +37,21 @@ class Ui(QtWidgets.QDialog, Form):
 
     # Старт парсинга
     def searchButon_pressed(self):
+        filter_region = self.filter_region()
         filter_car = self.filter_car()
         filter_year = self.filter_year()
 
         # изменить границы поиска
-        url = st.create_url(filter_car, filter_year)
+        url = st.create_url(filter_region, filter_car, filter_year)
         cars = pf.parse(url)
         #print(cars)
         wd.save_file(cars, wd.PATH_TO_FILE)
         self.checkBox_condition(wd.PATH_TO_FILE)
+
+    # Обработка comboBox для выбора региона поиска
+    def filter_region(self):
+        region = self.comboBoxRegion.currentText()
+        return region
 
     # Обработка MultiBox для выбора марки
     def filter_car(self):
@@ -89,18 +95,15 @@ class Ui(QtWidgets.QDialog, Form):
                 st.year_from = tmp
             # Если указан один и тот же год выпуска
             elif st.year_from == st.year_to:
-                filter_year = filter_year + '/year-' + st.year_from + '/all'
-                return filter_year
+                return st.year_from
 
         if st.year_from != 'Любой' and st.year_to != 'Любой':
-            filter_year = filter_year + '/all/?minyear=' + st.year_from + '&maxyear=' + st.year_to
+            filter_year = filter_year + '?minyear=' + st.year_from + '&maxyear=' + st.year_to
         elif st.year_from != 'Любой' and st.year_to == 'Любой':
-            filter_year = filter_year + '/all/?minyear=' + st.year_from
+            filter_year = filter_year + '?minyear=' + st.year_from
         elif st.year_from == 'Любой' and st.year_to != 'Любой':
-            filter_year = filter_year + '/all/?maxyear=' + st.year_to
+            filter_year = filter_year + '?maxyear=' + st.year_to
 
-        print(f'from {st.year_from}')
-        print(f'to {st.year_to}')
         print(filter_year)
         return filter_year
 
