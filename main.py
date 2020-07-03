@@ -176,7 +176,6 @@ class Ui(QtWidgets.QDialog, Form):
 
 if __name__ == '__main__':
     import sys
-
     # Создаем приложение
     app = QtWidgets.QApplication(sys.argv)
     w = Ui()

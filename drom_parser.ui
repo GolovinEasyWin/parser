@@ -1315,7 +1315,7 @@ color: black;</string>
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>../../Desktop/drom_log.jpg</pixmap>
+    <pixmap>images/drom_log.jpg</pixmap>
    </property>
   </widget>
   <widget class="QComboBox" name="comboBoxRegion">
