@@ -14,7 +14,8 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: black;</string>
+   <string notr="true">background-color: black;
+border-radius: 0.3;</string>
   </property>
   <property name="sizeGripEnabled">
    <bool>false</bool>
@@ -59,6 +60,9 @@
      <width>151</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="mouseTracking">
+    <bool>false</bool>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: #b89393;</string>
@@ -1410,12 +1414,12 @@ color: black;</string>
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="progressText">
+  <widget class="QLabel" name="titleText">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>550</y>
-     <width>341</width>
+     <x>420</x>
+     <y>380</y>
+     <width>261</width>
      <height>51</height>
     </rect>
    </property>

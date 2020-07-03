@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 #Библиотека для использования регулярных выражений
 import re
 
+from PyQt5.QtWidgets import QWidget, QProgressBar
 # Словарь для заголовков (имитация работы браузера = антибот)
 HEADERS = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36',
@@ -93,7 +94,7 @@ def get_content(html):
     return cars
 
 
-def parse(url):
+def parse(url, progress):
     # Получаем html-код
     html = get_html(url)
 
@@ -104,8 +105,9 @@ def parse(url):
         # Считаем количество страниц для данных аргументов
         pages_count = get_pages_count(html.text)
         print(pages_count)
-
+        progress.setMaximum(pages_count)
         for page in range(1, pages_count + 1):
+            progress.setValue(page)
             print(f'--- Выполняется парсинг {page} страницы из {pages_count} ---')
             html = get_html(url, params={'page': page})
             cars.extend(get_content(html.text))

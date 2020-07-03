@@ -1,6 +1,8 @@
 # Библиотека PyQT5 позволяет разрабатывать GUI
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QPixmap
+from PyQt5.QtWidgets import QWidget, QProgressBar
 
 # Импортируем файлы с функциями и настройками для парсинга
 import src.parse_functions as pf
@@ -22,9 +24,14 @@ class Ui(QtWidgets.QDialog, Form):
         super(Ui, self).__init__()
         self.setupUi(self)
         self.setWindowTitle('База объявлений auto.drom.ru')
+        self.progressBar = QProgressBar(self)
+        self.progressBar.setGeometry(290, 580, 531, 23)
         self.UI_init()
 
     def UI_init(self):
+        # Смена национального флага производителя автомобиля
+        self.comboBoxAuto.view().pressed.connect(self.choose_flag)
+
         # Активность при нажатии кнопки "Найти"
         self.searchButton.clicked.connect(self.searchButon_pressed)
 
@@ -41,7 +48,8 @@ class Ui(QtWidgets.QDialog, Form):
         filter_year = self.filter_year()
 
         url = st.create_url(filter_region, filter_car, filter_year, filter_price)
-        cars = pf.parse(url)
+
+        cars = pf.parse(url, self.progressBar)
 
         if len(cars) == 0:
             print('Нет машин')
@@ -118,6 +126,17 @@ class Ui(QtWidgets.QDialog, Form):
 
         print(filter_price)
         return filter_price
+
+    def choose_flag(self):
+        print('flag')
+        auto = self.comboBoxAuto.currentText()
+        print(auto)
+        if auto == 'Acura' or auto == 'Honda' or auto == 'Mitsubishi':
+            pixmap = QPixmap('images/japan.png')
+            self.flag.setPixmap(pixmap)
+        elif auto == 'Audi' or auto == 'BMW' or auto == 'Opel':
+            pixmap = QPixmap('images/germany.png')
+            self.flag.setPixmap(pixmap)
 
 
 if __name__ == '__main__':
