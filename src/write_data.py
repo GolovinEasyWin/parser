@@ -1,3 +1,6 @@
+# ©LG, Peter the Great Polytechnical University, IBKS, 2020
+# Developer: @GolovinEasyWin
+
 # Библиотека для работы с файлами Excel
 import csv
 

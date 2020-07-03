@@ -1167,22 +1167,6 @@ color: black;</string>
     </property>
    </item>
   </widget>
-  <widget class="QLabel" name="flag">
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>190</y>
-     <width>251</width>
-     <height>131</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap>images/japan.png</pixmap>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
@@ -1417,8 +1401,8 @@ color: black;</string>
   <widget class="QLabel" name="titleText">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>380</y>
+     <x>430</x>
+     <y>390</y>
      <width>261</width>
      <height>51</height>
     </rect>

@@ -1,4 +1,4 @@
-# ©LG PolyRec, Peter the Great Polytechnical University, IBKS, 2020
+# ©LG, Peter the Great Polytechnical University, IBKS, 2020
 # Developer: @GolovinEasyWin
 
 #Библиотека для работы с HTTP-запросами
@@ -28,6 +28,9 @@ MAX_CARS_ON_PAGE = 20
 
 # Словарь для автомобилей
 #cars = []
+
+# Словарь для ссылок
+links = []
 
 
 # Выполнение GET-запросов
@@ -59,9 +62,6 @@ def get_pages_count(html):
     if pages_count > MAX_PAGES:
         pages_count = MAX_PAGES
     return pages_count
-
-
-links = []
 
 
 def get_content(html):

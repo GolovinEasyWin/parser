@@ -1,4 +1,4 @@
-# ©LG PolyRec, Peter the Great Polytechnical University, IBKS, 2020
+# ©LG, Peter the Great Polytechnical University, IBKS, 2020
 # Developer: @GolovinEasyWin
 
 # Библиотека для использования командной строки
@@ -16,8 +16,8 @@ price_to = 0
 LIST_CARS = [
     'acura', 'audi', 'bmw', 'chery', 'chevrolet', 'citroen',
     'daewoo', 'fiat', 'ford', 'honda', 'hyundai', 'kia',
-    'mazda', 'mercedes-benz', 'mitsubishi',
-    'nissan', 'opel', 'renault', 'skoda',
+    'mazda', 'lexus', 'mercedes-benz', 'mitsubishi',
+    'nissan', 'opel', 'peugeot', 'renault', 'skoda',
     'subaru', 'suzuki', 'toyota', 'volkswagen', 'volvo'
 ]
 
@@ -57,7 +57,7 @@ def create_url(filter_region, filter_car, filter_year, filter_price):
     if check_arguments(filter_car):
 
         if str(filter_year).isdigit():
-            adress = default_url + 'region' + str(create_region_number(filter_region)) + '/' + str(filter_car) + '/year-' + + filter_year + '/all/' + filter_price
+            adress = default_url + 'region' + str(create_region_number(filter_region)) + '/' + str(filter_car) + '/year-' + filter_year + '/all/' + filter_price
         else:
             # Возвращаем новый адрес с учетом аргументов
             adress = default_url + 'region' + str(create_region_number(filter_region)) + '/' + str(filter_car) + '/all/' + filter_price + filter_year

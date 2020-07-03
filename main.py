@@ -1,8 +1,10 @@
+# ©LG, Peter the Great Polytechnical University, IBKS, 2020
+# Developer: @GolovinEasyWin
+
 # Библиотека PyQT5 позволяет разрабатывать GUI
 from PyQt5 import uic, QtWidgets
-from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
-from PyQt5.QtWidgets import QMessageBox, QProgressBar, QPushButton
+from PyQt5.QtWidgets import QMessageBox, QProgressBar, QPushButton, QLabel
 
 # Импортируем файлы с функциями и настройками для парсинга
 import src.parse_functions as pf
@@ -30,12 +32,16 @@ class Ui(QtWidgets.QDialog, Form):
         self.msgBox.setStyleSheet(
             "background-color: white;"
         )
+        self.flag = QLabel(self)
+        self.flag.setGeometry(80, 190, 251, 131)
+        self.pixmap = QPixmap('images/japan.png')
+        self.flag.setPixmap(self.pixmap)
         self.qbtn = QPushButton('Quit', self)
         self.UI_init()
 
     def UI_init(self):
         # Смена национального флага производителя автомобиля
-        self.comboBoxAuto.view().pressed.connect(self.choose_flag)
+        self.comboBoxAuto.currentIndexChanged.connect(self.choose_flag)
 
         # Активность при нажатии кнопки "Найти"
         self.searchButton.clicked.connect(self.searchButon_pressed)
@@ -57,9 +63,8 @@ class Ui(QtWidgets.QDialog, Form):
         cars = pf.parse(url, self.progressBar)
 
         if len(cars) == 0:
-            print('Нет машин')
             self.msgBox.setGeometry(750, 500, 300, 500)
-            self.msgBox.setWindowTitle("Ошибка")
+            self.msgBox.setWindowTitle("Ошибка поиска")
             self.msgBox.setText("По данному запросу автомобилей не найдено")
 
             self.msgBox.exec()
@@ -138,14 +143,34 @@ class Ui(QtWidgets.QDialog, Form):
         return filter_price
 
     def choose_flag(self):
-        print('flag')
         auto = self.comboBoxAuto.currentText()
-        print(auto)
-        if auto == 'Acura' or auto == 'Honda' or auto == 'Mitsubishi':
+        if auto == 'Acura' or auto == 'Honda' or auto == 'Mitsubishi' or auto == 'Toyota' or auto == 'Subaru' or \
+           auto == 'Suzuki' or auto == 'Nissan' or auto == 'Mazda' or auto == 'Lexus':
             pixmap = QPixmap('images/japan.png')
             self.flag.setPixmap(pixmap)
-        elif auto == 'Audi' or auto == 'BMW' or auto == 'Opel':
+        elif auto == 'Audi' or auto == 'BMW' or auto == 'Opel' or auto == 'Volkswagen' or auto == 'Mercedes-Benz':
             pixmap = QPixmap('images/germany.png')
+            self.flag.setPixmap(pixmap)
+        elif auto == 'Ford' or auto == 'Chevrolet':
+            pixmap = QPixmap('images/usa.png')
+            self.flag.setPixmap(pixmap)
+        elif auto == 'Kia' or auto == 'Daewoo' or auto == 'Hyundai':
+            pixmap = QPixmap('images/korea.png')
+            self.flag.setPixmap(pixmap)
+        elif auto == 'Peugeot' or auto == 'Renault' or auto == 'Citroen':
+            pixmap = QPixmap('images/france.png')
+            self.flag.setPixmap(pixmap)
+        elif auto == 'Volvo':
+            pixmap = QPixmap('images/sweden.png')
+            self.flag.setPixmap(pixmap)
+        elif auto == 'Skoda':
+            pixmap = QPixmap('images/cr.png')
+            self.flag.setPixmap(pixmap)
+        elif auto == 'Chery':
+            pixmap = QPixmap('images/china.png')
+            self.flag.setPixmap(pixmap)
+        elif auto == 'Fiat':
+            pixmap = QPixmap('images/italy.png')
             self.flag.setPixmap(pixmap)
 
 
