@@ -2,7 +2,7 @@
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
-from PyQt5.QtWidgets import QWidget, QProgressBar
+from PyQt5.QtWidgets import QMessageBox, QProgressBar, QPushButton
 
 # Импортируем файлы с функциями и настройками для парсинга
 import src.parse_functions as pf
@@ -26,6 +26,11 @@ class Ui(QtWidgets.QDialog, Form):
         self.setWindowTitle('База объявлений auto.drom.ru')
         self.progressBar = QProgressBar(self)
         self.progressBar.setGeometry(290, 580, 531, 23)
+        self.msgBox = QMessageBox(self)
+        self.msgBox.setStyleSheet(
+            "background-color: white;"
+        )
+        self.qbtn = QPushButton('Quit', self)
         self.UI_init()
 
     def UI_init(self):
@@ -53,6 +58,11 @@ class Ui(QtWidgets.QDialog, Form):
 
         if len(cars) == 0:
             print('Нет машин')
+            self.msgBox.setGeometry(750, 500, 300, 500)
+            self.msgBox.setWindowTitle("Ошибка")
+            self.msgBox.setText("По данному запросу автомобилей не найдено")
+
+            self.msgBox.exec()
             return -1
 
         wd.save_file(cars, wd.PATH_TO_FILE)
